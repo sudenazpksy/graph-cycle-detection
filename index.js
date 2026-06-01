@@ -4,7 +4,7 @@ function findLongestCyclesAndIntersection(graph) {
 
   function dfs(node, path, onPath) {
     if (onPath.has(node)) {
-      // DÃ¶ngÃ¼ bulundu
+      
       const cycleStartIndex = path.indexOf(node);
       const cycle = path.slice(cycleStartIndex);
       cycles.push(cycle);
@@ -26,12 +26,12 @@ function findLongestCyclesAndIntersection(graph) {
     onPath.delete(node);
   }
 
-  // Her dÃ¼ÄŸÃ¼m iÃ§in DFS baÅŸlat
+  
   for (const node in graph) {
     dfs(node, [], new Set());
   }
 
-  // En uzun dÃ¶ngÃ¼leri bul
+  
   const longestCycles = {};
   for (const cycle of cycles) {
     for (const node of cycle) {
@@ -44,7 +44,7 @@ function findLongestCyclesAndIntersection(graph) {
     }
   }
 
-  // DÃ¶ngÃ¼lerin kesiÅŸimini hesapla
+  
   const allCycles = Object.values(longestCycles);
   if (allCycles.length === 0) return { longestCycles: {}, intersection: [] };
 
@@ -59,7 +59,7 @@ function findLongestCyclesAndIntersection(graph) {
   };
 }
 
-// Ã–rnek kullanÄ±m:
+
 const graph = {
   A: ['B'],
   B: ['C'],
@@ -70,5 +70,5 @@ const graph = {
 };
 
 const result = findLongestCyclesAndIntersection(graph);
-console.log('En uzun dÃ¶ngÃ¼ler:', result.longestCycles);
-console.log('DÃ¶ngÃ¼lerin kesiÅŸimi:', result.intersection);
+console.log('En uzun degiskenler:', result.longestCycles);
+console.log('degiskenlerin kesisimi:', result.intersection);
